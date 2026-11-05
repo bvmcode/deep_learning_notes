@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="580" viewBox="0 0 1000 580" role="img" aria-labelledby="title desc">
+  <title id="title">Forward and backward passes through a computation graph</title>
+  <desc id="desc">The graph computes J equals 3 times A plus BC, then propagates derivatives backward with the chain rule.</desc>
+  <defs>
+    <marker id="blue-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#38bdf8"/></marker>
+    <marker id="red-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#fb7185"/></marker>
+    <style>
+      .title{font:700 26px Arial,sans-serif;fill:#f8fafc}.heading{font:700 20px Arial,sans-serif;fill:#f8fafc}
+      .label{font:18px Arial,sans-serif;fill:#e2e8f0}.small{font:15px Arial,sans-serif;fill:#cbd5e1}
+      .math{font:italic 20px Georgia,serif;fill:#f8fafc}.value{font:700 16px Arial,sans-serif;fill:#f8fafc}
+      .node{fill:#172033;stroke:#7dd3fc;stroke-width:2}.input{fill:#e2e8f0;stroke:#bae6fd;stroke-width:2}
+      .forward{fill:none;stroke:#38bdf8;stroke-width:3;marker-end:url(#blue-arrow)}
+      .backward{fill:none;stroke:#fb7185;stroke-width:3;marker-end:url(#red-arrow)}
+    </style>
+  </defs>
+  <rect width="1000" height="580" rx="18" fill="#080c14"/>
+  <text x="32" y="42" class="title">Computation Graph: Forward and Backward Propagation</text>
+  <rect x="20" y="62" width="960" height="222" rx="14" fill="#0d1626" stroke="#60a5fa"/>
+  <text x="40" y="94" class="heading">Forward pass (left to right): compute the output</text>
+  <text x="40" y="126" class="label">J = 3(A + BC)</text>
+
+  <circle cx="160" cy="164" r="25" class="input"/><text x="152" y="171" class="math" fill="#0f172a">B</text><text x="139" y="204" class="small">B = 3</text>
+  <circle cx="160" cy="242" r="25" class="input"/><text x="152" y="249" class="math" fill="#0f172a">C</text><text x="139" y="278" class="small">C = 2</text>
+  <circle cx="430" cy="242" r="25" class="input"/><text x="422" y="249" class="math" fill="#0f172a">A</text><text x="409" y="278" class="small">A = 5</text>
+  <rect x="265" y="170" width="130" height="56" rx="9" class="node"/><text x="288" y="203" class="math">U = BC</text>
+  <rect x="525" y="170" width="150" height="56" rx="9" class="node"/><text x="545" y="203" class="math">V = A + U</text>
+  <rect x="785" y="170" width="130" height="56" rx="9" class="node"/><text x="815" y="203" class="math">J = 3V</text>
+  <path d="M185 164 L263 187" class="forward"/><path d="M185 242 L263 209" class="forward"/>
+  <path d="M395 198 L523 198" class="forward"/><path d="M455 242 L520 215" class="forward"/><path d="M675 198 L783 198" class="forward"/>
+  <text x="294" y="250" class="value">U = 6</text><text x="570" y="250" class="value">V = 11</text><text x="817" y="250" class="value">J = 33</text>
+
+  <rect x="20" y="300" width="960" height="220" rx="14" fill="#160f25" stroke="#c084fc"/>
+  <text x="40" y="334" class="heading">Backward pass (right to left): compute derivatives with the chain rule</text>
+  <rect x="265" y="388" width="130" height="56" rx="9" class="node"/><text x="288" y="421" class="math">U = BC</text>
+  <rect x="525" y="388" width="150" height="56" rx="9" class="node"/><text x="545" y="421" class="math">V = A + U</text>
+  <rect x="785" y="388" width="130" height="56" rx="9" class="node"/><text x="815" y="421" class="math">J = 3V</text>
+  <circle cx="160" cy="372" r="25" class="input"/><text x="152" y="379" class="math" fill="#0f172a">B</text>
+  <circle cx="160" cy="460" r="25" class="input"/><text x="152" y="467" class="math" fill="#0f172a">C</text>
+  <circle cx="430" cy="482" r="25" class="input"/><text x="422" y="489" class="math" fill="#0f172a">A</text>
+  <path d="M785 416 L677 416" class="backward"/><text x="704" y="395" class="value">dV = 3</text>
+  <path d="M525 408 L397 408" class="backward"/><text x="436" y="387" class="value">dU = 3</text>
+  <path d="M548 443 L452 478" class="backward"/><text x="470" y="468" class="value">dA = 3</text>
+  <path d="M265 405 L185 376" class="backward"/><text x="205" y="360" class="value">dB = 6</text>
+  <path d="M265 425 L185 456" class="backward"/><text x="205" y="483" class="value">dC = 9</text>
+  <rect x="20" y="536" width="960" height="30" rx="10" fill="#10351f"/>
+  <text x="40" y="557" class="small">Forward: U = 6 &#8594; V = 11 &#8594; J = 33     &#8226;     Backward: dV = 3 &#8594; dA = dU = 3 &#8594; dB = 6, dC = 9</text>
+</svg>
