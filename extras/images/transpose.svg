@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-labelledby="title desc">
+  <title id="title">Transpose swaps rows and columns</title>
+  <desc id="desc">A 2 by 3 matrix becomes 3 by 2. A column vector becomes a row, which is what makes w transpose x a dot product.</desc>
+  <defs>
+    <style>
+      .title{font:700 24px Arial,sans-serif;fill:#f8fafc}
+      .heading{font:700 18px Arial,sans-serif;fill:#f8fafc}
+      .small{font:14px Arial,sans-serif;fill:#cbd5e1}
+      .math{font:italic 18px Georgia,serif;fill:#f8fafc}
+      .num{font:700 18px Georgia,serif;fill:#0f172a}
+      .cell{fill:#e2e8f0;stroke:#bae6fd;stroke-width:2}
+      .hot{fill:#fde68a;stroke:#fbbf24;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1000" height="500" rx="18" fill="#080c14"/>
+  <text x="32" y="40" class="title">Transpose</text>
+  <text x="32" y="68" class="small">Rows become columns. An m &#215; n matrix becomes n &#215; m.</text>
+
+  <text x="48" y="112" class="heading">A is 2 &#215; 3</text>
+  <rect x="40" y="132" width="52" height="40" rx="8" class="hot"/><text x="66" y="158" text-anchor="middle" class="num">1</text>
+  <rect x="100" y="132" width="52" height="40" rx="8" class="cell"/><text x="126" y="158" text-anchor="middle" class="num">2</text>
+  <rect x="160" y="132" width="52" height="40" rx="8" class="cell"/><text x="186" y="158" text-anchor="middle" class="num">3</text>
+  <rect x="40" y="180" width="52" height="40" rx="8" class="cell"/><text x="66" y="206" text-anchor="middle" class="num">4</text>
+  <rect x="100" y="180" width="52" height="40" rx="8" class="cell"/><text x="126" y="206" text-anchor="middle" class="num">5</text>
+  <rect x="160" y="180" width="52" height="40" rx="8" class="cell"/><text x="186" y="206" text-anchor="middle" class="num">6</text>
+
+  <text x="250" y="186" class="math">&#8594;</text>
+
+  <text x="310" y="112" class="heading">A&#7488; is 3 &#215; 2</text>
+  <rect x="300" y="132" width="52" height="40" rx="8" class="hot"/><text x="326" y="158" text-anchor="middle" class="num">1</text>
+  <rect x="360" y="132" width="52" height="40" rx="8" class="cell"/><text x="386" y="158" text-anchor="middle" class="num">4</text>
+  <rect x="300" y="180" width="52" height="40" rx="8" class="cell"/><text x="326" y="206" text-anchor="middle" class="num">2</text>
+  <rect x="360" y="180" width="52" height="40" rx="8" class="cell"/><text x="386" y="206" text-anchor="middle" class="num">5</text>
+  <rect x="300" y="228" width="52" height="40" rx="8" class="cell"/><text x="326" y="254" text-anchor="middle" class="num">3</text>
+  <rect x="360" y="228" width="52" height="40" rx="8" class="cell"/><text x="386" y="254" text-anchor="middle" class="num">6</text>
+  <text x="300" y="300" class="small">Row 1 of A becomes column 1.</text>
+
+  <rect x="520" y="100" width="456" height="250" rx="14" fill="#10351f" stroke="#4ade80"/>
+  <text x="540" y="136" class="heading">Why w&#7488; x is a dot product</text>
+  <rect x="548" y="164" width="44" height="36" rx="8" class="cell"/><text x="570" y="188" text-anchor="middle" class="num">1</text>
+  <rect x="548" y="206" width="44" height="36" rx="8" class="cell"/><text x="570" y="230" text-anchor="middle" class="num">2</text>
+  <rect x="548" y="248" width="44" height="36" rx="8" class="cell"/><text x="570" y="272" text-anchor="middle" class="num">3</text>
+  <text x="548" y="310" class="small">w is 3 &#215; 1</text>
+
+  <text x="620" y="220" class="math">&#8594;</text>
+
+  <rect x="660" y="196" width="44" height="36" rx="8" class="hot"/><text x="682" y="220" text-anchor="middle" class="num">1</text>
+  <rect x="710" y="196" width="44" height="36" rx="8" class="hot"/><text x="732" y="220" text-anchor="middle" class="num">2</text>
+  <rect x="760" y="196" width="44" height="36" rx="8" class="hot"/><text x="782" y="220" text-anchor="middle" class="num">3</text>
+  <text x="660" y="260" class="small">w&#7488; is 1 &#215; 3</text>
+  <text x="660" y="300" class="small">(1 &#215; 3) times (3 &#215; 1) is one number.</text>
+
+  <rect x="24" y="368" width="952" height="108" rx="14" fill="#160f25" stroke="#c084fc"/>
+  <text x="44" y="406" class="math">(A&#7488;)&#7488; = A</text>
+  <text x="280" y="406" class="math">(AB)&#7488; = B&#7488; A&#7488;</text>
+  <text x="620" y="406" class="math">a&#7488; b = b&#7488; a</text>
+  <text x="44" y="446" class="small">The product rule reverses the order so the inner dimensions still match.</text>
+</svg>

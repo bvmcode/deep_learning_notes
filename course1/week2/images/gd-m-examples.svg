@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760" viewBox="0 0 1000 760" role="img" aria-labelledby="title desc">
+  <title id="title">Gradient descent on m logistic-regression examples</title>
+  <desc id="desc">Each example contributes dz equals a minus y. Those contributions are averaged to form the gradient of the cost, then w and b take one step. The same step is repeated.</desc>
+  <defs>
+    <marker id="blue-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#38bdf8"/></marker>
+    <marker id="green-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4ade80"/></marker>
+    <style>
+      .title{font:700 24px Arial,sans-serif;fill:#f8fafc}
+      .heading{font:700 18px Arial,sans-serif;fill:#f8fafc}
+      .small{font:14px Arial,sans-serif;fill:#cbd5e1}
+      .math{font:italic 17px Georgia,serif;fill:#f8fafc}
+      .mathsm{font:italic 15px Georgia,serif;fill:#e2e8f0}
+      .node{fill:#172033;stroke:#7dd3fc;stroke-width:2}
+      .card{fill:#111827;stroke:#7dd3fc;stroke-width:2}
+      .avg{fill:#172033;stroke:#c084fc;stroke-width:2}
+      .step{fill:#10261a;stroke:#4ade80;stroke-width:2}
+      .wire{fill:none;stroke:#38bdf8;stroke-width:2.5}
+      .forward{fill:none;stroke:#38bdf8;stroke-width:2.5;marker-end:url(#blue-arrow)}
+      .steparrow{fill:none;stroke:#4ade80;stroke-width:2.5;marker-end:url(#green-arrow)}
+    </style>
+  </defs>
+  <rect width="1000" height="760" rx="18" fill="#080c14"/>
+  <text x="32" y="38" class="title">Gradient Descent on m Examples</text>
+  <text x="32" y="64" class="small">The gradient of the average loss is the average of the per-example gradients. This whole figure is one step.</text>
+
+  <rect x="20" y="80" width="960" height="372" rx="14" fill="#0d1626" stroke="#60a5fa"/>
+  <text x="40" y="110" class="heading">For i = 1 to m, add example i into the accumulators</text>
+  <text x="40" y="136" class="small">Start the step at zero: J = 0, dw&#8321; = 0, dw&#8322; = 0, db = 0</text>
+
+  <rect x="40" y="156" width="250" height="62" rx="10" class="card"/>
+  <text x="165" y="180" text-anchor="middle" class="small">example 1</text>
+  <text x="165" y="204" text-anchor="middle" class="mathsm">dz(1) = a(1) &#8722; y(1)</text>
+
+  <rect x="40" y="232" width="250" height="62" rx="10" class="card"/>
+  <text x="165" y="256" text-anchor="middle" class="small">example 2</text>
+  <text x="165" y="280" text-anchor="middle" class="mathsm">dz(2) = a(2) &#8722; y(2)</text>
+
+  <text x="165" y="322" text-anchor="middle" class="heading">...</text>
+
+  <rect x="40" y="340" width="250" height="62" rx="10" class="card"/>
+  <text x="165" y="364" text-anchor="middle" class="small">example m</text>
+  <text x="165" y="388" text-anchor="middle" class="mathsm">dz(m) = a(m) &#8722; y(m)</text>
+
+  <path d="M290 187 H330 M290 263 H330 M290 371 H330 M330 187 V371" class="wire"/>
+  <path d="M330 279 H398" class="forward"/>
+
+  <rect x="400" y="168" width="550" height="234" rx="12" class="node"/>
+  <text x="424" y="202" class="heading">Accumulators over the whole training set</text>
+  <text x="424" y="238" class="math">J += L(a(i), y(i))</text>
+  <text x="424" y="272" class="math">dw&#8321; += x&#8321;(i) dz(i)</text>
+  <text x="424" y="306" class="math">dw&#8322; += x&#8322;(i) dz(i)</text>
+  <text x="424" y="340" class="math">db += dz(i)</text>
+  <text x="424" y="376" class="small">More features: add x(i) dz(i) into a dw for every feature</text>
+
+  <text x="165" y="430" text-anchor="middle" class="small">a(i) = &#963;(w&#7488; x(i) + b)</text>
+
+  <rect x="20" y="468" width="960" height="156" rx="14" fill="#160f25" stroke="#c084fc"/>
+  <text x="40" y="498" class="heading">Finish the step: average, then update the parameters</text>
+
+  <rect x="40" y="514" width="450" height="90" rx="10" class="avg"/>
+  <text x="58" y="546" class="math">dw&#8321;, dw&#8322;, db, J  :=  each / m</text>
+  <text x="58" y="578" class="small">dw&#8321; = &#8706;J/&#8706;w&#8321;</text>
+  <text x="210" y="578" class="small">dw&#8322; = &#8706;J/&#8706;w&#8322;</text>
+  <text x="360" y="578" class="small">db = &#8706;J/&#8706;b</text>
+
+  <path d="M490 559 H528" class="steparrow"/>
+
+  <rect x="530" y="514" width="420" height="90" rx="10" class="step"/>
+  <text x="548" y="546" class="math">w&#8321; := w&#8321; &#8722; &#945; dw&#8321;</text>
+  <text x="760" y="546" class="math">w&#8322; := w&#8322; &#8722; &#945; dw&#8322;</text>
+  <text x="548" y="578" class="math">b := b &#8722; &#945; db</text>
+  <text x="760" y="578" class="small">then repeat the step</text>
+
+  <rect x="20" y="640" width="960" height="96" rx="14" fill="#1c1408" stroke="#fbbf24"/>
+  <text x="40" y="672" class="heading">Two explicit loops</text>
+  <rect x="250" y="654" width="230" height="32" rx="16" class="card"/>
+  <text x="365" y="675" text-anchor="middle" class="small">for each of m examples</text>
+  <rect x="500" y="654" width="230" height="32" rx="16" class="card"/>
+  <text x="615" y="675" text-anchor="middle" class="small">for each of n features</text>
+  <text x="40" y="712" class="small">Vectorization computes this same gradient step without those loops. That is what makes the step fast on a large training set.</text>
+</svg>

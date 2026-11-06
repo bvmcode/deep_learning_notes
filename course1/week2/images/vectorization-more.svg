@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-labelledby="title desc">
+  <title id="title">Vectorized matrix products, element-wise functions, and the dw update</title>
+  <desc id="desc">np.dot replaces two loops in a matrix-vector product. np.exp and related functions replace an element loop. Logistic regression stores dw as one vector so the feature loop disappears.</desc>
+  <defs>
+    <style>
+      .title{font:700 24px Arial,sans-serif;fill:#f8fafc}
+      .heading{font:700 18px Arial,sans-serif;fill:#f8fafc}
+      .small{font:14px Arial,sans-serif;fill:#cbd5e1}
+      .math{font:italic 17px Georgia,serif;fill:#f8fafc}
+      .code{font:15px Menlo,Consolas,monospace;fill:#e2e8f0}
+      .amber{font:700 15px Arial,sans-serif;fill:#fbbf24}
+      .green{font:700 15px Arial,sans-serif;fill:#4ade80}
+    </style>
+  </defs>
+  <rect width="1000" height="700" rx="18" fill="#080c14"/>
+  <text x="32" y="40" class="title">More vectorized operations</text>
+  <text x="32" y="66" class="small">A built-in call replaces the loops. Logistic regression then keeps only the loop over examples.</text>
+
+  <rect x="24" y="86" width="468" height="280" rx="14" fill="#1c1408" stroke="#fb7185"/>
+  <text x="44" y="118" class="heading">Matrix-vector product</text>
+  <text x="44" y="154" class="small">Each entry is one row of A dotted with v.</text>
+  <text x="44" y="192" class="code">for i in rows:</text>
+  <text x="68" y="218" class="code">for j in cols:</text>
+  <text x="92" y="244" class="code">u[i] += A[i, j] * v[j]</text>
+  <text x="44" y="286" class="amber">Two explicit loops</text>
+  <text x="44" y="330" class="green">u = np.dot(A, v)</text>
+
+  <rect x="508" y="86" width="468" height="280" rx="14" fill="#10351f" stroke="#4ade80"/>
+  <text x="528" y="118" class="heading">Element-wise on a vector</text>
+  <text x="528" y="156" class="math">u_i = exp(v_i)</text>
+  <text x="528" y="196" class="code">u = np.exp(v)</text>
+  <text x="528" y="232" class="code">np.log(v)    np.abs(v)</text>
+  <text x="528" y="262" class="code">np.maximum(v, 0)</text>
+  <text x="528" y="292" class="code">v ** 2</text>
+  <text x="528" y="322" class="code">1 / v</text>
+
+  <rect x="24" y="384" width="952" height="288" rx="14" fill="#0d1626" stroke="#60a5fa"/>
+  <text x="44" y="418" class="heading">Logistic regression: drop the feature loop</text>
+  <text x="44" y="458" class="small">Before, each example updated dw_1, dw_2, ... one feature at a time.</text>
+  <text x="44" y="500" class="code">dw = np.zeros((n_x, 1))</text>
+  <text x="44" y="534" class="code">dw += x * dz</text>
+  <text x="44" y="568" class="code">dw /= m</text>
+  <text x="520" y="500" class="math">dw := dw + x dz</text>
+  <text x="520" y="540" class="small">x is the example's feature vector.</text>
+  <text x="520" y="568" class="small">dz is the scalar a - y for that example.</text>
+  <text x="520" y="620" class="amber">The loop over the m training examples remains.</text>
+</svg>

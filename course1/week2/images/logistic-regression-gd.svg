@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="740" viewBox="0 0 1000 740" role="img" aria-labelledby="title desc">
+  <title id="title">Gradient descent for logistic regression on one example</title>
+  <desc id="desc">Forward pass from weights and features through z and the sigmoid to the logistic loss, then a backward pass that yields dz equals a minus y and the gradients of w and b.</desc>
+  <defs>
+    <marker id="blue-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#38bdf8"/></marker>
+    <marker id="red-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#fb7185"/></marker>
+    <style>
+      .title{font:700 24px Arial,sans-serif;fill:#f8fafc}
+      .heading{font:700 18px Arial,sans-serif;fill:#f8fafc}
+      .small{font:14px Arial,sans-serif;fill:#cbd5e1}
+      .math{font:italic 18px Georgia,serif;fill:#f8fafc}
+      .mathsm{font:italic 15px Georgia,serif;fill:#e2e8f0}
+      .node{fill:#172033;stroke:#7dd3fc;stroke-width:2}
+      .loss{fill:#1c1408;stroke:#fbbf24;stroke-width:2}
+      .param{fill:#fde68a;stroke:#fbbf24;stroke-width:2}
+      .feature{fill:#e2e8f0;stroke:#bae6fd;stroke-width:2}
+      .pill{font:700 16px Georgia,serif}
+      .wire{fill:none;stroke:#38bdf8;stroke-width:2.5}
+      .forward{fill:none;stroke:#38bdf8;stroke-width:2.5;marker-end:url(#blue-arrow)}
+      .backward{fill:none;stroke:#fb7185;stroke-width:3;marker-end:url(#red-arrow)}
+    </style>
+  </defs>
+  <rect width="1000" height="740" rx="18" fill="#080c14"/>
+  <text x="32" y="38" class="title">Gradient Descent for Logistic Regression</text>
+  <text x="32" y="62" class="small">One training example. Blue computes the loss. Red sends derivatives back to the parameters.</text>
+
+  <rect x="20" y="78" width="960" height="292" rx="14" fill="#0d1626" stroke="#60a5fa"/>
+  <text x="40" y="108" class="heading">Forward pass (left to right): compute the loss</text>
+  <rect x="600" y="92" width="16" height="14" rx="3" class="param"/>
+  <text x="622" y="104" class="small">parameter</text>
+  <rect x="730" y="92" width="16" height="14" rx="3" class="feature"/>
+  <text x="752" y="104" class="small">feature or label</text>
+
+  <rect x="46" y="148" width="76" height="34" rx="17" class="param"/>
+  <text x="84" y="170" text-anchor="middle" class="pill" fill="#78350f">w&#8321;</text>
+  <rect x="46" y="188" width="76" height="34" rx="17" class="feature"/>
+  <text x="84" y="210" text-anchor="middle" class="pill" fill="#0f172a">x&#8321;</text>
+  <rect x="46" y="228" width="76" height="34" rx="17" class="param"/>
+  <text x="84" y="250" text-anchor="middle" class="pill" fill="#78350f">w&#8322;</text>
+  <rect x="46" y="268" width="76" height="34" rx="17" class="feature"/>
+  <text x="84" y="290" text-anchor="middle" class="pill" fill="#0f172a">x&#8322;</text>
+  <rect x="46" y="308" width="76" height="34" rx="17" class="param"/>
+  <text x="84" y="330" text-anchor="middle" class="pill" fill="#78350f">b</text>
+
+  <rect x="236" y="214" width="300" height="66" rx="10" class="node"/>
+  <text x="386" y="242" text-anchor="middle" class="math">z = w&#8321;x&#8321; + w&#8322;x&#8322; + b</text>
+  <text x="386" y="266" text-anchor="middle" class="small">linear score</text>
+
+  <rect x="596" y="214" width="140" height="66" rx="10" class="node"/>
+  <text x="666" y="242" text-anchor="middle" class="math">a = &#963;(z)</text>
+  <text x="666" y="266" text-anchor="middle" class="small">a = &#375;</text>
+
+  <rect x="800" y="214" width="150" height="66" rx="10" class="loss"/>
+  <text x="875" y="242" text-anchor="middle" class="math">L(a, y)</text>
+  <text x="875" y="266" text-anchor="middle" class="small">logistic loss</text>
+
+  <rect x="842" y="152" width="66" height="32" rx="16" class="feature"/>
+  <text x="875" y="173" text-anchor="middle" class="pill" fill="#0f172a">y</text>
+
+  <path d="M122 165 H176 M122 205 H176 M122 247 H176 M122 285 H176 M122 325 H176 M176 165 V325" class="wire"/>
+  <path d="M176 247 H234" class="forward"/>
+  <path d="M536 247 L594 247" class="forward"/>
+  <path d="M736 247 L798 247" class="forward"/>
+  <path d="M875 184 L875 212" class="forward"/>
+
+  <rect x="20" y="386" width="960" height="228" rx="14" fill="#160f25" stroke="#c084fc"/>
+  <text x="40" y="416" class="heading">Backward pass (right to left): derivatives of L</text>
+
+  <rect x="36" y="452" width="240" height="132" rx="10" class="node"/>
+  <text x="156" y="490" text-anchor="middle" class="math">dw&#8321; = x&#8321; dz</text>
+  <text x="156" y="524" text-anchor="middle" class="math">dw&#8322; = x&#8322; dz</text>
+  <text x="156" y="558" text-anchor="middle" class="math">db = dz</text>
+
+  <rect x="400" y="468" width="220" height="100" rx="10" class="node"/>
+  <text x="510" y="506" text-anchor="middle" class="math">dz = a &#8722; y</text>
+  <text x="510" y="538" text-anchor="middle" class="mathsm">(dL/da) &#183; a(1&#8722;a)</text>
+
+  <rect x="724" y="468" width="236" height="100" rx="10" class="node"/>
+  <text x="842" y="506" text-anchor="middle" class="math">da = dL/da</text>
+  <text x="842" y="540" text-anchor="middle" class="mathsm">&#8722;y/a + (1&#8722;y)/(1&#8722;a)</text>
+
+  <path d="M724 518 L622 518" class="backward"/>
+  <path d="M400 518 L278 518" class="backward"/>
+  <text x="672" y="490" text-anchor="middle" class="small">&#215; a(1&#8722;a)</text>
+  <text x="338" y="490" text-anchor="middle" class="small">&#215; x&#8321;,  &#215; x&#8322;,  &#215; 1</text>
+
+  <rect x="20" y="630" width="960" height="88" rx="14" fill="#10351f" stroke="#4ade80"/>
+  <text x="40" y="662" class="heading">One gradient step</text>
+  <text x="300" y="694" text-anchor="middle" class="math">w&#8321; := w&#8321; &#8722; &#945; dw&#8321;</text>
+  <text x="560" y="694" text-anchor="middle" class="math">w&#8322; := w&#8322; &#8722; &#945; dw&#8322;</text>
+  <text x="810" y="694" text-anchor="middle" class="math">b := b &#8722; &#945; db</text>
+</svg>

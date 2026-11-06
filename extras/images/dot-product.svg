@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img" aria-labelledby="title desc">
+  <title id="title">Dot product of two vectors</title>
+  <desc id="desc">Matching entries are multiplied, then those products are added. The result is one number, the same operation as w transpose x.</desc>
+  <defs>
+    <style>
+      .title{font:700 24px Arial,sans-serif;fill:#f8fafc}
+      .heading{font:700 18px Arial,sans-serif;fill:#f8fafc}
+      .small{font:14px Arial,sans-serif;fill:#cbd5e1}
+      .math{font:italic 18px Georgia,serif;fill:#f8fafc}
+      .num{font:700 20px Georgia,serif;fill:#0f172a}
+      .box{fill:#e2e8f0;stroke:#bae6fd;stroke-width:2}
+      .prod{fill:#fde68a;stroke:#fbbf24;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1000" height="460" rx="18" fill="#080c14"/>
+  <text x="32" y="42" class="title">Dot product</text>
+  <text x="32" y="70" class="small">Multiply matching entries, then add. The result is a single number.</text>
+
+  <rect x="24" y="96" width="620" height="250" rx="14" fill="#0d1626" stroke="#60a5fa"/>
+  <text x="48" y="132" class="heading">a</text>
+  <text x="150" y="132" class="heading">b</text>
+  <text x="300" y="132" class="heading">a * b</text>
+
+  <rect x="44" y="156" width="56" height="40" rx="8" class="box"/><text x="72" y="182" text-anchor="middle" class="num">1</text>
+  <rect x="44" y="206" width="56" height="40" rx="8" class="box"/><text x="72" y="232" text-anchor="middle" class="num">2</text>
+  <rect x="44" y="256" width="56" height="40" rx="8" class="box"/><text x="72" y="282" text-anchor="middle" class="num">3</text>
+
+  <rect x="146" y="156" width="56" height="40" rx="8" class="box"/><text x="174" y="182" text-anchor="middle" class="num">4</text>
+  <rect x="146" y="206" width="56" height="40" rx="8" class="box"/><text x="174" y="232" text-anchor="middle" class="num">5</text>
+  <rect x="146" y="256" width="56" height="40" rx="8" class="box"/><text x="174" y="282" text-anchor="middle" class="num">6</text>
+
+  <text x="230" y="182" class="math">&#215;</text>
+  <text x="230" y="232" class="math">&#215;</text>
+  <text x="230" y="282" class="math">&#215;</text>
+
+  <rect x="280" y="156" width="72" height="40" rx="8" class="prod"/><text x="316" y="182" text-anchor="middle" class="num">4</text>
+  <rect x="280" y="206" width="72" height="40" rx="8" class="prod"/><text x="316" y="232" text-anchor="middle" class="num">10</text>
+  <rect x="280" y="256" width="72" height="40" rx="8" class="prod"/><text x="316" y="282" text-anchor="middle" class="num">18</text>
+
+  <text x="390" y="200" class="math">4 + 10 + 18</text>
+  <text x="390" y="246" class="heading">= 32</text>
+  <text x="390" y="284" class="small">a&#7488; b = 32</text>
+
+  <rect x="664" y="96" width="312" height="250" rx="14" fill="#10351f" stroke="#4ade80"/>
+  <text x="684" y="136" class="heading">In the model</text>
+  <text x="684" y="180" class="math">z = w&#7488; x + b</text>
+  <text x="684" y="222" class="small">w&#7488; x is the dot product of</text>
+  <text x="684" y="248" class="small">the weights and the features.</text>
+  <text x="684" y="292" class="small">np.dot(w, x) computes that sum</text>
+  <text x="684" y="316" class="small">for 1-D arrays.</text>
+
+  <rect x="24" y="364" width="952" height="72" rx="14" fill="#160f25" stroke="#c084fc"/>
+  <text x="44" y="406" class="math">a&#7488; b = ||a|| ||b|| cos &#952;</text>
+  <text x="460" y="398" class="small">Positive: similar direction.</text>
+  <text x="460" y="422" class="small">Zero: perpendicular. Negative: opposite directions.</text>
+</svg>

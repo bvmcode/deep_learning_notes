@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc">
+  <title id="title">Vectorized dot product versus an explicit for loop</title>
+  <desc id="desc">np.dot computes w transpose x in one SIMD call. A Python for loop multiplies one pair of entries at a time and is hundreds of times slower on a long vector.</desc>
+  <defs>
+    <style>
+      .title{font:700 24px Arial,sans-serif;fill:#f8fafc}
+      .heading{font:700 18px Arial,sans-serif;fill:#f8fafc}
+      .small{font:14px Arial,sans-serif;fill:#cbd5e1}
+      .math{font:italic 18px Georgia,serif;fill:#f8fafc}
+      .code{font:15px Menlo,Consolas,monospace;fill:#e2e8f0}
+      .amber{font:700 16px Arial,sans-serif;fill:#fbbf24}
+      .green{font:700 16px Arial,sans-serif;fill:#4ade80}
+    </style>
+  </defs>
+  <rect width="1000" height="620" rx="18" fill="#080c14"/>
+  <text x="32" y="40" class="title">Vectorization</text>
+  <text x="32" y="66" class="small">Compute z = w&#7488; x + b with one array operation instead of one Python step per feature.</text>
+
+  <rect x="24" y="88" width="460" height="360" rx="14" fill="#1c1408" stroke="#fb7185"/>
+  <text x="44" y="122" class="heading">Explicit for loop</text>
+  <text x="44" y="168" class="code">z = 0</text>
+  <text x="44" y="200" class="code">for i in range(n_x):</text>
+  <text x="68" y="232" class="code">z += w[i] * x[i]</text>
+  <text x="44" y="264" class="code">z += b</text>
+  <text x="44" y="320" class="small">Each feature is a separate Python iteration.</text>
+  <text x="44" y="352" class="amber">Lecture timing, 10&#8310; entries:</text>
+  <text x="44" y="384" class="amber">about 480 ms</text>
+  <text x="44" y="420" class="small">Hundreds of times slower on a long vector.</text>
+
+  <rect x="516" y="88" width="460" height="360" rx="14" fill="#10351f" stroke="#4ade80"/>
+  <text x="536" y="122" class="heading">Vectorized</text>
+  <text x="536" y="180" class="code">z = np.dot(w, x) + b</text>
+  <text x="536" y="224" class="math">np.dot(w, x) = w&#7488; x</text>
+  <text x="536" y="276" class="small">One call multiplies every pair together.</text>
+  <text x="536" y="320" class="green">SIMD: single instruction, multiple data</text>
+  <text x="536" y="352" class="green">Lecture timing, 10&#8310; entries:</text>
+  <text x="536" y="384" class="green">about 1.5 ms</text>
+  <text x="536" y="420" class="small">CPUs and GPUs both run this kind of call in parallel.</text>
+
+  <rect x="24" y="464" width="952" height="128" rx="14" fill="#0d1626" stroke="#60a5fa"/>
+  <text x="44" y="502" class="heading">Rule of thumb</text>
+  <text x="44" y="538" class="math">Whenever possible, avoid explicit for loops.</text>
+  <text x="44" y="570" class="small">About 300x here is the difference between a result in one minute and a result in about five hours.</text>
+</svg>

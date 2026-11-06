@@ -21,6 +21,8 @@ The goal here is to have summarized notes of the lectures.
 - Do not add subheaders. Bolded bullet points are fine.
 - Create one or more relevant images for every transcript summarization to reinforce the main concepts visually.
 - Embed the images in the same Markdown cell as the summarized notes, not in separate notebook cells.
+- A demonstration, algorithm, or numerical check may be added as a notebook **code cell** immediately after the markdown it illustrates. Execute that cell so the saved output is part of the notes.
+- Keep each code cell short and tied to the concept in the markdown above it.
 
 Example: 
 ```markdown
